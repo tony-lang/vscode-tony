@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 13
+    - name: Install vsce
+      run: yarn global add vsce
+    - name: Generate package
+      run: vsce package
+    - name: Publish
+      run: vsce publish -p $PERSONAL_ACCESS_TOKEN
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

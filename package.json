@@ -1,0 +1,25 @@
+{
+    "name": "vscode-tony",
+    "displayName": "Tony",
+    "description": "Syntax highlighting for the Tony programming language",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "tony",
+            "aliases": ["Tony", "tony"],
+            "extensions": [".tn"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "tony",
+            "scopeName": "source.tony",
+            "path": "./syntaxes/tony.tmLanguage.json"
+        }]
+    }
+}

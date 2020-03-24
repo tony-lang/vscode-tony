@@ -1,0 +1,132 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Tony",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#punctuation"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#identifiers"
+		},
+		{
+			"include": "#booleans"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword",
+				"match": "\\b(import|from|export|return|if|then|else|case|when|module|in)\\b"
+			}]
+		},
+		"punctuation": {
+			"name": "comment",
+			"patterns": [
+				{
+					"name": "punctuation",
+					"match": "\\.|\\||\\,|\\[|\\]|\\(|\\)|\\{|\\}"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator",
+				"match": "\\-\\>|\\:\\=|\\=\\>|\\?|\\="
+			}]
+		},
+		"identifiers": {
+			"patterns": [
+				{
+					"include": "#identifier_operators"
+				},
+				{
+					"include": "#infix_operators"
+				},
+				{
+					"include": "#regular_identifiers"
+				}
+			],
+			"repository": {
+				"identifier_operators": {
+					"patterns": [{
+						"name": "support.variable",
+						"match": "(==|[!@$%^&*|<>~*\\\\\\-+\\/.]+)=*>?"
+					}]
+				},
+				"infix_operators": {
+					"name": "support.variable",
+					"begin": "`",
+					"end": "`"
+				},
+				"regular_identifiers": {
+					"patterns": [{
+						"name": "variable",
+						"match": "[a-z_][a-z0-9_]*\\??"
+					}]
+				}
+			}
+		},
+		"booleans": {
+			"patterns": [{
+				"name": "constant.language",
+				"match": "\\b(true|false)\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"include": "#integers"
+				},
+				{
+					"include": "#decimals"
+				}
+			],
+			"repository": {
+				"integers": {
+					"patterns": [{
+						"name": "constant.numeric",
+						"match": "(0x(_?[A-Fa-f0-9]+)+)|(0o(_?[0-7]+)+)|(0b(_?[0-1]+)+)|(_?[0-9]+)+"
+					}]
+				},
+				"decimals": {
+					"patterns": [{
+						"name": "constant.numeric",
+						"match": "(_?[0-9]+\\._?[0-9]+(e-?_?[0-9]+)?)|(_?[0-9]+e-?_?[0-9]+)"
+					}]
+				}
+			}
+		},
+		"strings": {
+			"name": "string",
+			"begin": "\"|'",
+			"end": "\"|'",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment",
+			"begin": "#",
+			"end": "\n"
+		}
+	},
+	"scopeName": "source.tony"
+}
