@@ -12,16 +12,28 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "tony",
-            "aliases": ["Tony", "tony"],
-            "extensions": [".tn"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "tony",
-            "scopeName": "source.tony",
-            "path": "./syntaxes/tony.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "tony",
+                "aliases": [
+                    "Tony",
+                    "tony"
+                ],
+                "extensions": [
+                    ".tn"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "tony",
+                "scopeName": "source.tony",
+                "path": "./syntaxes/tony.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "vsce": "^1.74.0"
     }
 }
