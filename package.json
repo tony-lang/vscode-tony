@@ -6,6 +6,8 @@
     "engines": {
         "vscode": "^1.43.0"
     },
+    "author": "Jonas Hübotter",
+    "license": "MIT",
     "categories": [
         "Programming Languages"
     ],
