@@ -125,6 +125,15 @@
 				{
 					"name": "constant.character.escape",
 					"match": "\\\\."
+				},
+				{
+					"begin": "{",
+					"end": "}",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
 				}
 			]
 		},
